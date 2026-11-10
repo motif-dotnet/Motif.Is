@@ -18,12 +18,13 @@ Motif.Is is a proposition library for .NET specs: a spec states facts (`order.To
 | 12 | Self-hosted specs | Motif.Is's specs are written in Motif.Is. A few bootstrap specs, marked `// BOOTSTRAP`, use plain xUnit `Assert` to prove that a false claim throws and that `Throws` catches. Breaking the core on purpose fails 9 specs, so the self-hosting isn't hollow. |
 | 13 | Spec names | After Kevlin Henney: namespace, class and method together read as one proposition (`An_order.cannot_be_placed.while_it_is_empty`), and specs that share the start of a sentence share a namespace or class. Spec classes therefore have lower-case names, and `.editorconfig` turns off CS8981 for `Checks/`. Tried here first; it may become a Motif spec convention. |
 | 14 | Failure gallery | `Deliberately_failing` holds specs that fail on purpose, to show the messages in a test runner. They're tagged `Kind=FailureGallery`; leave them out with `--filter "Kind!=FailureGallery"`, as CI does. |
-| 15 | Not built the Motif way, yet | No sketch or solution plan: they describe apps, and a library has almost none of their parts. The repo has a glossary, decisions and spec conventions. Whether Motif's tools should cover a library is an open question this repo tests. |
+| 15 | Not built the Motif way, yet | No sketch or solution plan: they describe apps, and a library has almost none of their parts. The repo has a glossary, decisions and spec conventions. Whether Motif's tools should cover a library is an open question this repo tests ([motif-dotnet/.github#24](https://github.com/motif-dotnet/.github/issues/24)). |
 
 ## Later
 
-- **Bootstrap from a released core.** Once the basic claims settle, release a minimal core as an alpha NuGet package, and spec the next version with it, as a compiler is built by its previous release. The checks then come from a fixed, known version, so a bug in the code under test can't hide itself, and the bootstrap specs could go. The package and project define the same names, so the specs would reference the package under an extern alias (`<PackageReference Include="Motif.Is" Aliases="released" />`). The core needs only enough to check the rest: probably `Is`, `IsTrue`, `IsFalse` and `Throws`. Moving to a newer released core is a deliberate step.
-- **Multi-line strings in failures**, such as a claim about a message, print over several lines and are hard to read.
-- **Marking bootstrap specs** by more than a comment, such as a trait.
-- **The word for code claims.** `Check.That` might read better as something else, or with an optional `using static Motif.Is.Check;`.
-- **Async code**: `Throws` for `Func<Task>`.
+- **Bootstrap from a released core**: spec the next version with a released alpha of a minimal core, as a compiler is built by its previous release ([#1](https://github.com/motif-dotnet/Motif.Is/issues/1)).
+- **Multi-line strings in failures** print over several lines and are hard to read ([#2](https://github.com/motif-dotnet/Motif.Is/issues/2)).
+- **Marking bootstrap specs** with a trait, not just a comment ([#3](https://github.com/motif-dotnet/Motif.Is/issues/3)).
+- **The word for code claims**: is there something better than `Check.That`? ([#4](https://github.com/motif-dotnet/Motif.Is/issues/4))
+- **Async code**: `Throws` for `Func<Task>` ([#5](https://github.com/motif-dotnet/Motif.Is/issues/5)).
+- **Motif's tools for a library**: [motif-dotnet/.github#24](https://github.com/motif-dotnet/.github/issues/24).
