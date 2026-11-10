@@ -1,4 +1,4 @@
-namespace Motif.Is.Specs;
+namespace Motif.Is.Specs.Deliberately_failing;
 
 // DELIBERATELY FAILING. These specs exist only to show what failures look like in a test runner
 // (Visual Studio's Test Explorer, dotnet test), in both styles, side by side.
@@ -6,7 +6,7 @@ namespace Motif.Is.Specs;
 //   dotnet test --filter "Kind!=FailureGallery"
 
 [Trait("Kind", "FailureGallery")]
-public sealed class FailureGallery_as_extensions
+public sealed class claims_as_extensions
 {
     [Fact]
     public void Is()
@@ -118,7 +118,7 @@ public sealed class FailureGallery_as_extensions
 }
 
 [Trait("Kind", "FailureGallery")]
-public sealed class FailureGallery_with_check_that
+public sealed class claims_with_check_that
 {
     [Fact]
     public void Is()
