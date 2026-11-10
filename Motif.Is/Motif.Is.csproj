@@ -4,4 +4,21 @@
     <RootNamespace>Motif.Is</RootNamespace>
   </PropertyGroup>
 
+  <!-- Package metadata, ready for a first alpha. Nothing is published yet. -->
+  <PropertyGroup>
+    <PackageId>Motif.Is</PackageId>
+    <Version>0.1.0-alpha</Version>
+    <Authors>John Page</Authors>
+    <Description>Specs state facts: order.Total.Is(11.25m). A proposition library for .NET specs, from the Motif.NET suite.</Description>
+    <PackageTags>assertions;specs;testing;propositions</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/motif-dotnet/Motif.Is</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/motif-dotnet/Motif.Is</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
 </Project>
