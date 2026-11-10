@@ -18,7 +18,7 @@ public sealed class ClaimsAsExtensions
         var total = 12.49m;
         Action claiming = () => total.Is(12.50m);
 
-        claiming.Throws<FalseProposition>().Message.Is("`total` is 12.50\nbut it is 12.49");
+        claiming.Throws<Expected>().Message.Is("`total` to be 12.50\nbut it is 12.49.");
     }
 
     [Fact]
@@ -56,7 +56,7 @@ public sealed class ClaimsAsExtensions
         var count = 3;
         Action claiming = () => count.IsGreaterThan(5);
 
-        claiming.Throws<FalseProposition>().Message.Is("`count` is greater than 5\nbut it is 3");
+        claiming.Throws<Expected>().Message.Is("`count` to be greater than 5\nbut it is 3.");
     }
 
     [Fact]
@@ -77,7 +77,7 @@ public sealed class ClaimsAsExtensions
         List<int> items = [1, 2];
         Action claiming = () => items.HasCount(3);
 
-        claiming.Throws<FalseProposition>().Message.Is("`items` has 3 items\nbut it has 2 items: [1, 2]");
+        claiming.Throws<Expected>().Message.Is("`items` to have 3 items\nbut it has 2 items: [1, 2].");
     }
 
     [Fact]
@@ -94,7 +94,7 @@ public sealed class ClaimsAsExtensions
         Action parsing = () => int.Parse("x");
         Action claiming = () => parsing.Throws<DivideByZeroException>();
 
-        claiming.Throws<FalseProposition>().Message
-            .Is("`parsing` throws DivideByZeroException\nbut it threw FormatException: The input string 'x' was not in a correct format.");
+        claiming.Throws<Expected>().Message
+            .Is("`parsing` to throw DivideByZeroException\nbut it threw FormatException: The input string 'x' was not in a correct format.");
     }
 }

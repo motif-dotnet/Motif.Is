@@ -9,41 +9,45 @@ namespace Motif.Is;
 /// </summary>
 internal static class Claims
 {
+    // Each claim is stated in two forms: as a fact ("is"), for recorded sentences,
+    // and after "expected" ("to be"), for failures.
+
     internal static void Is<T>(T actual, T expected, string subject) =>
-        State(subject, "is", Show(expected), AreEqual(actual, expected), $"it is {Show(actual)}");
+        State(subject, "is", "to be", Show(expected), AreEqual(actual, expected), $"it is {Show(actual)}");
 
     internal static void IsNot<T>(T actual, T other, string subject) =>
-        State(subject, "is not", Show(other), !AreEqual(actual, other), $"it is {Show(actual)}");
+        State(subject, "is not", "not to be", Show(other), !AreEqual(actual, other), $"it is {Show(actual)}");
 
     internal static void IsNull<T>(T actual, string subject) =>
-        State(subject, "is null", null, actual is null, $"it is {Show(actual)}");
+        State(subject, "is null", "to be null", null, actual is null, $"it is {Show(actual)}");
 
     internal static void IsNotNull<T>(T actual, string subject) =>
-        State(subject, "is not null", null, actual is not null, "it is null");
+        State(subject, "is not null", "not to be null", null, actual is not null, "it is null");
 
     internal static void IsGreaterThan<T>(T actual, T other, string subject) where T : IComparable<T> =>
-        State(subject, "is greater than", Show(other), actual is not null && actual.CompareTo(other) > 0, $"it is {Show(actual)}");
+        State(subject, "is greater than", "to be greater than", Show(other), actual is not null && actual.CompareTo(other) > 0, $"it is {Show(actual)}");
 
     internal static void IsLessThan<T>(T actual, T other, string subject) where T : IComparable<T> =>
-        State(subject, "is less than", Show(other), actual is not null && actual.CompareTo(other) < 0, $"it is {Show(actual)}");
+        State(subject, "is less than", "to be less than", Show(other), actual is not null && actual.CompareTo(other) < 0, $"it is {Show(actual)}");
 
     internal static void IsEmpty<T>(IEnumerable<T> actual, string subject)
     {
         var items = actual.ToList();
-        State(subject, "is empty", null, items.Count == 0, $"it has {Items(items.Count)}: {Show(items)}");
+        State(subject, "is empty", "to be empty", null, items.Count == 0, $"it has {Items(items.Count)}: {Show(items)}");
     }
 
     internal static void HasCount<T>(IEnumerable<T> actual, int count, string subject)
     {
         var items = actual.ToList();
         var found = items.Count == 0 ? "it is empty" : $"it has {Items(items.Count)}: {Show(items)}";
-        State(subject, "has", Items(count), items.Count == count, found);
+        State(subject, "has", "to have", Items(count), items.Count == count, found);
     }
 
     internal static void Includes<T>(IEnumerable<T> actual, T item, string subject)
     {
         var items = actual.ToList();
-        State(subject, "includes", Show(item), items.Contains(item), $"it is {Show(items)}");
+        var found = items.Count == 0 ? "it is empty" : $"it is {Show(items)}";
+        State(subject, "includes", "to include", Show(item), items.Contains(item), found);
     }
 
     internal static TException Throws<TException>(Action action, string subject) where TException : Exception
@@ -55,23 +59,23 @@ internal static class Claims
         }
         catch (TException thrown)
         {
-            State(subject, "throws", name, true, "");
+            State(subject, "throws", "to throw", name, true, "");
             return thrown;
         }
         catch (Exception other)
         {
-            State(subject, "throws", name, false, $"it threw {other.GetType().Name}: {other.Message}");
+            State(subject, "throws", "to throw", name, false, $"it threw {other.GetType().Name}: {other.Message}");
         }
 
-        State(subject, "throws", name, false, "it threw nothing");
-        throw new InvalidOperationException("Unreachable: a false proposition throws.");
+        State(subject, "throws", "to throw", name, false, "it threw nothing");
+        throw new InvalidOperationException("Unreachable: a false claim throws.");
     }
 
-    private static void State(string subject, string claim, string? expected, bool holds, string actual)
+    private static void State(string subject, string claim, string expectation, string? value, bool holds, string found)
     {
-        var proposition = new Proposition(Subject(subject), claim, expected, holds, actual);
+        var proposition = new Proposition(Subject(subject), claim, expectation, value, holds, found);
         Propositions.Add(proposition);
-        if (!holds) throw new FalseProposition(proposition);
+        if (!holds) throw new Expected(proposition);
     }
 
     // A lambda's subject reads better without its "() =>".

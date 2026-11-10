@@ -19,9 +19,9 @@ public sealed class Bootstrapping
     {
         var total = 12.49m;
 
-        var thrown = Assert.Throws<FalseProposition>(() => total.Is(12.50m));
+        var thrown = Assert.Throws<Expected>(() => total.Is(12.50m));
 
-        Assert.Equal("`total` is 12.50\nbut it is 12.49", thrown.Message);
+        Assert.Equal("`total` to be 12.50\nbut it is 12.49.", thrown.Message);
     }
 
     [Fact]
@@ -38,6 +38,6 @@ public sealed class Bootstrapping
     {
         Action fine = () => { };
 
-        Assert.Throws<FalseProposition>(() => fine.Throws<InvalidOperationException>());
+        Assert.Throws<Expected>(() => fine.Throws<InvalidOperationException>());
     }
 }

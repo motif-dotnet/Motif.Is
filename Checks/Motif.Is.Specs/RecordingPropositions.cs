@@ -39,7 +39,8 @@ public sealed class RecordingPropositions
 
         stated.Subject.Is("count");
         stated.Claim.Is("is greater than");
-        stated.Expected.Is("2");
+        stated.Expectation.Is("to be greater than");
+        stated.Value.Is("2");
         stated.Holds.IsTrue();
     }
 }

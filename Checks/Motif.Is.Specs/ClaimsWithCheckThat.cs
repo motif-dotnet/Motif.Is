@@ -17,9 +17,9 @@ public sealed class ClaimsWithCheckThat
     {
         var total = 12.49m;
 
-        var thrown = Check.That(() => Check.That(total).Is(12.50m)).Throws<FalseProposition>();
+        var thrown = Check.That(() => Check.That(total).Is(12.50m)).Throws<Expected>();
 
-        Check.That(thrown.Message).Is("`total` is 12.50\nbut it is 12.49");
+        Check.That(thrown.Message).Is("`total` to be 12.50\nbut it is 12.49.");
     }
 
     [Fact]
@@ -56,9 +56,9 @@ public sealed class ClaimsWithCheckThat
     {
         var count = 3;
 
-        var thrown = Check.That(() => Check.That(count).IsGreaterThan(5)).Throws<FalseProposition>();
+        var thrown = Check.That(() => Check.That(count).IsGreaterThan(5)).Throws<Expected>();
 
-        Check.That(thrown.Message).Is("`count` is greater than 5\nbut it is 3");
+        Check.That(thrown.Message).Is("`count` to be greater than 5\nbut it is 3.");
     }
 
     [Fact]
@@ -78,9 +78,9 @@ public sealed class ClaimsWithCheckThat
     {
         List<int> items = [1, 2];
 
-        var thrown = Check.That(() => Check.That(items).HasCount(3)).Throws<FalseProposition>();
+        var thrown = Check.That(() => Check.That(items).HasCount(3)).Throws<Expected>();
 
-        Check.That(thrown.Message).Is("`items` has 3 items\nbut it has 2 items: [1, 2]");
+        Check.That(thrown.Message).Is("`items` to have 3 items\nbut it has 2 items: [1, 2].");
     }
 
     [Fact]
@@ -92,9 +92,9 @@ public sealed class ClaimsWithCheckThat
     [Fact]
     public void A_false_throws_says_what_was_thrown_instead()
     {
-        var thrown = Check.That(() => Check.That(() => int.Parse("x")).Throws<DivideByZeroException>()).Throws<FalseProposition>();
+        var thrown = Check.That(() => Check.That(() => int.Parse("x")).Throws<DivideByZeroException>()).Throws<Expected>();
 
         Check.That(thrown.Message)
-            .Is("`int.Parse(\"x\")` throws DivideByZeroException\nbut it threw FormatException: The input string 'x' was not in a correct format.");
+            .Is("`int.Parse(\"x\")` to throw DivideByZeroException\nbut it threw FormatException: The input string 'x' was not in a correct format.");
     }
 }
