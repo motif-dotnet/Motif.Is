@@ -13,22 +13,22 @@ internal static class Claims
     // and after "expected" ("to be"), for failures.
 
     internal static void Is<T>(T actual, T expected, string subject) =>
-        State(subject, "is", "to be", Show(expected), AreEqual(actual, expected), $"it is {Show(actual)}");
+        State(subject, "is", "to be", Show(expected), AreEqual(actual, expected), $"it's {Show(actual)}");
 
     internal static void IsNot<T>(T actual, T other, string subject) =>
-        State(subject, "is not", "not to be", Show(other), !AreEqual(actual, other), $"it is {Show(actual)}");
+        State(subject, "is not", "not to be", Show(other), !AreEqual(actual, other), $"it's {Show(actual)}");
 
     internal static void IsNull<T>(T actual, string subject) =>
-        State(subject, "is null", "to be null", null, actual is null, $"it is {Show(actual)}");
+        State(subject, "is null", "to be null", null, actual is null, $"it's {Show(actual)}");
 
     internal static void IsNotNull<T>(T actual, string subject) =>
-        State(subject, "is not null", "not to be null", null, actual is not null, "it is null");
+        State(subject, "is not null", "not to be null", null, actual is not null, "it's null");
 
     internal static void IsGreaterThan<T>(T actual, T other, string subject) where T : IComparable<T> =>
-        State(subject, "is greater than", "to be greater than", Show(other), actual is not null && actual.CompareTo(other) > 0, $"it is {Show(actual)}");
+        State(subject, "is greater than", "to be greater than", Show(other), actual is not null && actual.CompareTo(other) > 0, $"it's {Show(actual)}");
 
     internal static void IsLessThan<T>(T actual, T other, string subject) where T : IComparable<T> =>
-        State(subject, "is less than", "to be less than", Show(other), actual is not null && actual.CompareTo(other) < 0, $"it is {Show(actual)}");
+        State(subject, "is less than", "to be less than", Show(other), actual is not null && actual.CompareTo(other) < 0, $"it's {Show(actual)}");
 
     internal static void IsEmpty<T>(IEnumerable<T> actual, string subject)
     {
@@ -39,14 +39,14 @@ internal static class Claims
     internal static void HasCount<T>(IEnumerable<T> actual, int count, string subject)
     {
         var items = actual.ToList();
-        var found = items.Count == 0 ? "it is empty" : $"it has {Items(items.Count)}: {Show(items)}";
+        var found = items.Count == 0 ? "it's empty" : $"it has {Items(items.Count)}: {Show(items)}";
         State(subject, "has", "to have", Items(count), items.Count == count, found);
     }
 
     internal static void Includes<T>(IEnumerable<T> actual, T item, string subject)
     {
         var items = actual.ToList();
-        var found = items.Count == 0 ? "it is empty" : $"it is {Show(items)}";
+        var found = items.Count == 0 ? "it's empty" : $"it's {Show(items)}";
         State(subject, "includes", "to include", Show(item), items.Contains(item), found);
     }
 

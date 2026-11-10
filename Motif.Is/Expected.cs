@@ -5,7 +5,7 @@ namespace Motif;
 /// <summary>
 /// Thrown when a spec's claim is false. Test runners (xUnit v2 and v3, NUnit, MSTest) print an exception's
 /// full type name before its message, so the name is chosen to start the sentence:
-/// <c>Motif.Expected : `order.Placed` to be true</c> / <c>but it is false.</c>
+/// <c>Motif.Expected : `order.Placed` to be true</c> / <c>but it's false.</c>
 /// </summary>
 public sealed class Expected : Exception, IAssertionException
 {

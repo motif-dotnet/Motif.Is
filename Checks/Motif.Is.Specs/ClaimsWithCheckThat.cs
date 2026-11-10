@@ -19,7 +19,7 @@ public sealed class ClaimsWithCheckThat
 
         var thrown = Check.That(() => Check.That(total).Is(12.50m)).Throws<Expected>();
 
-        Check.That(thrown.Message).Is("`total` to be 12.50\nbut it is 12.49.");
+        Check.That(thrown.Message).Is("`total` to be 12.50\nbut it's 12.49.");
     }
 
     [Fact]
@@ -58,7 +58,7 @@ public sealed class ClaimsWithCheckThat
 
         var thrown = Check.That(() => Check.That(count).IsGreaterThan(5)).Throws<Expected>();
 
-        Check.That(thrown.Message).Is("`count` to be greater than 5\nbut it is 3.");
+        Check.That(thrown.Message).Is("`count` to be greater than 5\nbut it's 3.");
     }
 
     [Fact]

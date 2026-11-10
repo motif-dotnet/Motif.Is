@@ -21,7 +21,7 @@ public sealed class Bootstrapping
 
         var thrown = Assert.Throws<Expected>(() => total.Is(12.50m));
 
-        Assert.Equal("`total` to be 12.50\nbut it is 12.49.", thrown.Message);
+        Assert.Equal("`total` to be 12.50\nbut it's 12.49.", thrown.Message);
     }
 
     [Fact]

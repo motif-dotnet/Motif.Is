@@ -18,7 +18,7 @@ public sealed class ClaimsAsExtensions
         var total = 12.49m;
         Action claiming = () => total.Is(12.50m);
 
-        claiming.Throws<Expected>().Message.Is("`total` to be 12.50\nbut it is 12.49.");
+        claiming.Throws<Expected>().Message.Is("`total` to be 12.50\nbut it's 12.49.");
     }
 
     [Fact]
@@ -56,7 +56,7 @@ public sealed class ClaimsAsExtensions
         var count = 3;
         Action claiming = () => count.IsGreaterThan(5);
 
-        claiming.Throws<Expected>().Message.Is("`count` to be greater than 5\nbut it is 3.");
+        claiming.Throws<Expected>().Message.Is("`count` to be greater than 5\nbut it's 3.");
     }
 
     [Fact]
