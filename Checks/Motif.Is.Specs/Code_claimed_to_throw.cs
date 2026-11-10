@@ -30,7 +30,8 @@ public sealed class is_false
     [Fact]
     public void when_it_throws_something_else_and_says_what()
     {
-        Action claiming = () => Check.That(() => int.Parse("x")).Throws<DivideByZeroException>();
+        // A lambda that returns a value, held in a var, is a Func: Check.That takes that too.
+        var claiming = () => Check.That(() => int.Parse("x")).Throws<DivideByZeroException>();
 
         Check.That(claiming).Throws<Expected>().Message
             .Is("`int.Parse(\"x\")` to throw DivideByZeroException\nbut it threw FormatException: The input string 'x' was not in a correct format.");

@@ -3,8 +3,9 @@ using System.Runtime.CompilerServices;
 namespace Motif.Is;
 
 /// <summary>
-/// Style 1: claims as extensions on the value. <c>order.Total.Is(12.50m)</c>.
+/// Claims about values, as extensions on the value: <c>order.Total.Is(12.50m)</c>.
 /// The subject's name comes from the source text, via CallerArgumentExpression.
+/// Claims about code go through <see cref="Check"/> instead.
 /// </summary>
 public static class ValueClaims
 {
@@ -51,8 +52,4 @@ public static class ValueClaims
     // Not "Contains": LINQ's Contains would win or clash, and silently return a bool nobody checks.
     public static void Includes<T>(this IEnumerable<T> actual, T item, [CallerArgumentExpression(nameof(actual))] string subject = "") =>
         Claims.Includes(actual, item, subject);
-
-    /// <summary>Needs a variable of type Action: <c>Action placing = () => order.Place(); placing.Throws&lt;X&gt;();</c></summary>
-    public static TException Throws<TException>(this Action action, [CallerArgumentExpression(nameof(action))] string subject = "") where TException : Exception =>
-        Claims.Throws<TException>(action, subject);
 }

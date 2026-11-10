@@ -4,8 +4,8 @@ using System.Globalization;
 namespace Motif.Is;
 
 /// <summary>
-/// The one implementation of every claim. Both styles (extensions on the value, and Check.That)
-/// are thin wrappers over these, so they always agree on meaning and messages.
+/// The one implementation of every claim. The public surface (extensions on values, Check.That for code)
+/// is a thin layer over these.
 /// </summary>
 internal static class Claims
 {

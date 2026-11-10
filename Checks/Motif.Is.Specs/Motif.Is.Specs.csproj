@@ -3,8 +3,6 @@
   <PropertyGroup>
     <RootNamespace>Motif.Is.Specs</RootNamespace>
     <IsPackable>false</IsPackable>
-    <!-- Spec names read as propositions, so classes have lower-case names like "holds" (CS8981 warns about those). -->
-    <NoWarn>$(NoWarn);CS8981</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
