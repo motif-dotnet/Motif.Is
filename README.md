@@ -19,7 +19,7 @@ Every claim is also kept as a proposition (its subject, claim and value), so tha
 
 ## Status
 
-**Trial.** Not on NuGet yet. It has the basic claims: `Is`, `IsNot`, `IsNull`, `IsNotNull`, `IsTrue`, `IsFalse`, `IsGreaterThan`, `IsLessThan`, `IsEmpty`, `HasCount`, `Includes`, and `Throws` for code. It works with any test framework: failures read the same in xUnit v2 and v3, NUnit and MSTest.
+**Trial.** Not on NuGet, and not planned for now: alpha 1, the minimal core, will be served from a local feed in this repo, for Motif's own use ([decision 16](decisions.md), [#1](https://github.com/motif-dotnet/Motif.Is/issues/1)). It has the basic claims: `Is`, `IsNot`, `IsNull`, `IsNotNull`, `IsTrue`, `IsFalse`, `IsGreaterThan`, `IsLessThan`, `IsEmpty`, `HasCount`, `Includes`, and `Throws` for code. It works with any test framework: failures read the same in xUnit v2 and v3, NUnit and MSTest.
 
 The decisions so far, and what's planned next, are in [decisions.md](decisions.md). The project's terms are in [motif/glossary.md](motif/glossary.md).
 
