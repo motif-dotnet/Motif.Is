@@ -103,7 +103,6 @@ The propositions a spec states, kept as they're made, per async flow. Started wi
 The minimal set of claims (`Is`, `IsTrue`, `IsFalse` and `Throws`), released as a package that Motif.Is's own specs are checked with, as a compiler is built by its previous release. Alpha 1 is the first.
 
 - **Kind:** domain concept
-- **Status:** proposed
 - **See also:** [Bootstrap spec](#bootstrap-spec), [Self-hosted](#self-hosted)
 
 ## Self-hosted
