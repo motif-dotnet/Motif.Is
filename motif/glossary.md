@@ -98,6 +98,14 @@ The propositions a spec states, kept as they're made, per async flow. Started wi
 - **Kind:** domain concept
 - **In code:** `Propositions`, `PropositionRecording`
 
+## Released core
+
+The minimal set of claims (`Is`, `IsTrue`, `IsFalse` and `Throws`), released as a package that Motif.Is's own specs are checked with, as a compiler is built by its previous release. Alpha 1 is the first.
+
+- **Kind:** domain concept
+- **Status:** proposed
+- **See also:** [Bootstrap spec](#bootstrap-spec), [Self-hosted](#self-hosted)
+
 ## Self-hosted
 
 Said of Motif.Is's own specs: they're written in Motif.Is, apart from the bootstrap specs.
