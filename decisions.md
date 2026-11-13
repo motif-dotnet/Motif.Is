@@ -19,10 +19,11 @@ Motif.Is is a proposition library for .NET specs: a spec states facts (`order.To
 | 13 | Spec names | After Kevlin Henney: namespace, class and method together read as one proposition (`An_order.cannot_be_placed.while_it_is_empty`), and specs that share the start of a sentence share a namespace or class. Spec classes therefore have lower-case names, and `.editorconfig` turns off CS8981 for `Checks/`. Tried here first; it may become a Motif spec convention. |
 | 14 | Failure gallery | `Deliberately_failing` holds specs that fail on purpose, to show the messages in a test runner. They're tagged `Kind=FailureGallery`; leave them out with `--filter "Kind!=FailureGallery"`, as CI does. |
 | 15 | Not built the Motif way, yet | No sketch or solution plan: they describe apps, and a library has almost none of their parts. The repo has a glossary, decisions and spec conventions. Whether Motif's tools should cover a library is an open question this repo tests ([motif-dotnet/.github#24](https://github.com/motif-dotnet/.github/issues/24)). |
+| 16 | Alpha 1 | Alpha 1 (`0.1.0-alpha.1`) is the minimal core only: `Is`, `IsTrue`, `IsFalse` and `Throws`, enough to check everything else. It's mainly for Motif's own use, so it isn't published to nuget.org: the `.nupkg` is committed to a local feed folder in this repo, added as a source in `nuget.config`. Moving to a newer core is a deliberate commit. GitHub Packages comes later, once a second repo needs Motif.Is ([#1](https://github.com/motif-dotnet/Motif.Is/issues/1)). |
 
 ## Later
 
-- **Bootstrap from a released core**: spec the next version with a released alpha of a minimal core, as a compiler is built by its previous release ([#1](https://github.com/motif-dotnet/Motif.Is/issues/1)).
+- **Bootstrap from a released core**: spec the next version with alpha 1 (decision 16), as a compiler is built by its previous release ([#1](https://github.com/motif-dotnet/Motif.Is/issues/1)).
 - **Multi-line strings in failures** print over several lines and are hard to read ([#2](https://github.com/motif-dotnet/Motif.Is/issues/2)).
 - **Marking bootstrap specs** with a trait, not just a comment ([#3](https://github.com/motif-dotnet/Motif.Is/issues/3)).
 - **The word for code claims**: is there something better than `Check.That`? ([#4](https://github.com/motif-dotnet/Motif.Is/issues/4))
