@@ -100,7 +100,7 @@ The propositions a spec states, kept as they're made, per async flow. Started wi
 
 ## Released core
 
-The minimal set of claims (`Is`, `IsTrue`, `IsFalse` and `Throws`), released as a package that Motif.Is's own specs are checked with, as a compiler is built by its previous release. Alpha 1 is the first.
+A pinned release of [Motif.Is.Core](https://github.com/motif-dotnet/Motif.Is.Core) that Motif.Is's own specs are checked with, as a compiler is built by its previous release. It comes from a local feed folder, and moving to a newer one is a deliberate commit.
 
 - **Kind:** domain concept
 - **See also:** [Bootstrap spec](#bootstrap-spec), [Self-hosted](#self-hosted)

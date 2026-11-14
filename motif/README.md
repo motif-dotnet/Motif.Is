@@ -15,4 +15,4 @@ This repo uses the [Motif.NET](https://github.com/motif-dotnet) conventions. Thi
 
 ## In this repo
 
-Motif.Is is a library, not an app, so there's no sketch, plan or diagrams here. Motif's sketch and solution plan describe apps (ports, adapters, external systems), and a library has almost none of those. Whether, and how, Motif's tools should cover a library is an open question that this repo is a test case for.
+Motif.Is is a library, not an app, so there's no sketch, plan or diagrams here. Motif's sketch and solution plan describe apps (ports, adapters, external systems), and a library has almost none of those. Whether, and how, Motif's tools should cover a library is an open question that this repo is a test case for ([motif-dotnet/.github#24](https://github.com/motif-dotnet/.github/issues/24)).

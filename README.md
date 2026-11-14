@@ -15,11 +15,11 @@ Motif.Expected : `order.Placed` to be true
 but it's false.
 ```
 
-Every claim is also kept as a proposition (its subject, claim and value), so that plain-English specs can one day be generated from well-named specs. That's the reason Motif.Is exists rather than just using an existing assertion library. The idea and its origin story, with credits to James Bach, Michael Bolton and Kevlin Henney, are in Motif.NET's [design/ideas.md](https://github.com/motif-dotnet/.github/blob/main/design/ideas.md#motifis-isly).
+Every claim is also kept as a proposition (its subject, claim and value), so that plain-English specs can one day be generated from well-named specs. That's where Motif.Is is heading, and the reason it exists rather than just using an existing assertion library. The idea and its origin story, with credits to James Bach, Michael Bolton and Kevlin Henney, are in Motif.NET's [design/ideas.md](https://github.com/motif-dotnet/.github/blob/main/design/ideas.md#motifis-isly).
 
 ## Status
 
-**Trial.** Not on NuGet, and not planned for now: alpha 1, the minimal core, will be served from a local feed in this repo, for Motif's own use ([decision 16](decisions.md), [#1](https://github.com/motif-dotnet/Motif.Is/issues/1)). It has the basic claims: `Is`, `IsNot`, `IsNull`, `IsNotNull`, `IsTrue`, `IsFalse`, `IsGreaterThan`, `IsLessThan`, `IsEmpty`, `HasCount`, `Includes`, and `Throws` for code. It works with any test framework: failures read the same in xUnit v2 and v3, NUnit and MSTest.
+**Trial.** Not on NuGet, and not planned for now. Motif.Is is to be rebuilt on [Motif.Is.Core](https://github.com/motif-dotnet/Motif.Is.Core), its small, stable core, and its specs checked by a released core from a local feed ([decision 17](decisions.md), [#7](https://github.com/motif-dotnet/Motif.Is/issues/7)). Recording propositions pauses at the rebuild, until the core has a hook for it. It has the basic claims: `Is`, `IsNot`, `IsNull`, `IsNotNull`, `IsTrue`, `IsFalse`, `IsGreaterThan`, `IsLessThan`, `IsEmpty`, `HasCount`, `Includes`, and `Throws` for code. It works with any test framework: failures read the same in xUnit v2 and v3, NUnit and MSTest.
 
 The decisions so far, and what's planned next, are in [decisions.md](decisions.md). The project's terms are in [motif/glossary.md](motif/glossary.md).
 
